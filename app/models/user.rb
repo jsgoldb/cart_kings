@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :timeoutable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
+  has_many :carts
+  
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -12,5 +15,7 @@ class User < ActiveRecord::Base
       user.skip_confirmation!
     end      
   end
+
+
 
 end
