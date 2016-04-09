@@ -1,3 +1,4 @@
+#fixes bug related to unique email requirement with multiple oauthed users
 class IndexOnEmailIsNotUnique < ActiveRecord::Migration
   def up
     remove_index "users", :name =>"index_users_on_email" 

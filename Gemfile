@@ -38,6 +38,14 @@ gem 'omniauth-google-oauth2'
 
 gem 'recaptcha', :require => 'recaptcha/rails'
 
+#image management
+gem 'paperclip', "~> 5.0.0.beta1"
+
+#for scraper access to models
+gem 'require_all'
+
+gem 'nokogiri'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -51,6 +59,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry'
 end
 
 group :development do

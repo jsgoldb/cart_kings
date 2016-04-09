@@ -1,0 +1,12 @@
+  <div class="container">
+    <ul class="row list-unstyled">
+      <% @carts.each do |cart| %>
+        <li class="col-xs-4 <%= 'rotate' unless dont_rotate(cart) %>">
+          <a href="#" class="thumbnail">
+            <img src=<%= cart.image.url %> alt="">
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div> 
+ 

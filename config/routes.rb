@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :cart_parts
+  resources :categories
+  resources :parts
   resources :carts
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
   root 'application#index'

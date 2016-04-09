@@ -1,0 +1,10 @@
+<% @category.parts.each do |part| %> 
+
+  <div class='row' style="overflow:hidden">
+    <div class="col-lg-10">
+      <h3><%= part.description %></h3>
+      <img class="img-responsive"  src=<%= part.image.url %> >
+    </div>
+  </div>
+
+<% end %>
