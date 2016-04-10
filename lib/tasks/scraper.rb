@@ -36,7 +36,6 @@ class Scraper
           binding.pry
         end
         category.child_categories << subcat
-        #category.child_categories << Category.find_or_create_by(name: category_div.css("a").attribute("title").value)
         category.save
       end
       scrape_categories(page, SUB_PAGE_CAT_DIV, SUB_PAGE_LABEL)

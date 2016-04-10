@@ -1,1 +1,5 @@
-    <%= link_to "Sign in with Facebook", omniauth_authorize_path(resource_name, provider) %>
+
+
+  <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-block btn-social btn-facebook" do %>
+   <span class="fa fa-facebook"></span> Log In with Facebook
+  <% end %>
