@@ -60,6 +60,14 @@ body {
   height: 500px;
 }
 
+.darken {
+  background:
+    linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+}
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

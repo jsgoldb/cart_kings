@@ -14,13 +14,16 @@
 </head>
 <body>
 
-  <header>
-    <%= render 'layouts/navigation' %>
-  </header>
+    <div class="container">
+      <%= render 'layouts/navigation' %>
+    </div>
 
-    <%= render 'layouts/messages' %>
-    <p class="notice"><%= notice %>
-    <p class="alert"><%= alert %>
+
+    <p class="notice"><%= notice %></p>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
 
     <div class="container-flud">
       <%= yield %>
