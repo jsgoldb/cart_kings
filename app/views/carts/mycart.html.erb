@@ -1,0 +1,23 @@
+ <% if @cart %>
+  <h1 class= "text-center">My Cart</h1>
+
+  <div class= "col-sm-12">
+    <img class="img-responsive col-sm-6 col-sm-offset-3 <%= 'rotate' unless dont_rotate(@cart) %>" src=<%= @cart.image.url %> alt="">
+  </div>
+
+  <h2><%= @cart.comments %></h2>
+
+  <h2 class="text-center">Parts</h2>
+
+  <% @cart.parts.each do |part| %>
+
+    <a href="<%= category_part_path(part.category, part) %>" class="thumbnail col-xs-4">
+      <img src=<%= part.image.url %> alt="">
+    </a>
+    <%= part.description %>
+    <%= button_to 'Get A Quote', checkout_path %>
+    
+  <% end %>
+<% else %>
+  <h1>Your Cart is Empty</h1>
+<% end %>

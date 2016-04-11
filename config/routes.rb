@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  resources :cart_parts
+  resources :cart_parts, only: [:create]
   
   resources :categories do 
     resources :parts
@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   resources 'contacts', only: [:new, :create]
   get '/contacts', to: 'contacts#new'
+
+  get '/mycart', to: 'carts#show_my_cart', as: 'my_cart'
+
+  post '/checkout', to: 'carts#my_cart_checkout', as: 'checkout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
