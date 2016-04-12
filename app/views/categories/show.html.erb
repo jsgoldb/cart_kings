@@ -1,10 +1,21 @@
-<% @category.parts.each do |part| %> 
+<% if @category.child_categories.empty? %>
+  <%= render partial: 'toggle', locals: {:@category => @category} %>
+  <% @category.parts.each do |part| %> 
 
-  <div class='row' style="overflow:hidden">
-    <div class="col-lg-10">
-      <h3><%= part.description %></h3>
-      <img class="img-responsive"  src=<%= part.image.url %> >
+    <div class="col-xs-6 col-sm-3 thumbnail">
+      <div class="part_desc">
+        <%= part.description %>
+      </div>
+      <img src="<%= part.image.url %>" alt="<%= part.description %>"/>
+      <%= button_to 'Add to My Cart', cart_parts_path(part_id: part), {class: 'btn btn-primary'}  %>
     </div>
-  </div>
+
+  <% end %>
+
+<% else %>
+  <%= render partial: 'toggle', locals: {:@category => @category} %>
+  <%= render partial: 'list', locals: {:@categories => @category.child_categories} %>
+
+
 
 <% end %>

@@ -1,0 +1,11 @@
+<% if @category.parent %>
+  <a href="/categories/<%= @category.parent.id %>">
+  <div>
+    Return to <%= @category.parent.name %>
+<% else %>
+  <a href="/categories">
+  <div>
+    Return to Categories
+<% end %>
+  </div>
+</a>

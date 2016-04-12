@@ -1,0 +1,12 @@
+<% @categories.each do |cat| %>
+
+  <a href="<%= category_path(cat) %>">
+    <div class="col-xs-6 col-sm-3 thumbnail">
+      <img src="<%= cat.image.url %>" alt="<%= cat.name %>"/>
+      <div class="category_name_wide">
+        <%= cat.name %>
+      </div>
+    </div>
+  </a>
+
+<% end %>

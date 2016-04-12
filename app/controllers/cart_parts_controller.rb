@@ -20,7 +20,9 @@ class CartPartsController < ApplicationController
     @cart_part.save
     @user.current_cart = @cart
     @user.save
-    redirect_to cart_path(@cart)
+    flash[:notice] = "Item added to My Cart"
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to)
   end
 
   def edit
