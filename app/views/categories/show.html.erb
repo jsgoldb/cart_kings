@@ -1,12 +1,22 @@
 <% if @category.child_categories.empty? %>
   <%= render partial: 'toggle', locals: {:@category => @category} %>
-  <% @category.parts.each do |part| %> 
 
-    <div class="col-xs-6 col-sm-3 thumbnail">
+  <div class="text-center">
+    <%= button_to "Add Part to This Category", new_category_part_path(@category), {class: 'btn btn-primary', method: :get} %>
+  </div>
+
+  <% @category.parts.each do |part| %>
+
+    <div class="col-xs-6 col-sm-3 thumbnail part">
+
+      <%= link_to "View Part to Edit/Delete", category_part_path(@category,part) %>
+
       <div class="part_desc">
         <%= part.description %>
       </div>
-      <img src="<%= part.image.url %>" alt="<%= part.description %>"/>
+ 
+        <img src="<%= part.image.url %>" alt="<%= part.description %>"/>
+
       <%= button_to 'Add to My Cart', cart_parts_path(part_id: part), {class: 'btn btn-primary'}  %>
     </div>
 

@@ -1,0 +1,6 @@
+      <div class= 'text-center'>
+        <%= button_to "Edit this Part", edit_category_part_path(@category, @part), {class: 'btn btn-primary', method: :get} %>
+      </div><br>
+      <div class="text-center">
+        <%= button_to "Delete this Part", category_part_path(@category, @part), {method: :delete, class: 'btn btn-primary'} %>
+      </div>
