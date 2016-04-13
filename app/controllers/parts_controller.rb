@@ -4,7 +4,7 @@ class PartsController < ApplicationController
   end
 
   def new
-    if params[:category_id] && !Category.exists?(params[:category_id])
+    if !Category.exists?(params[:category_id])
       redirect_to (category_part_path(params[:id])), alert: "Category not found."
     else
       @category = Category.find_by(id: params[:category_id])
@@ -14,7 +14,12 @@ class PartsController < ApplicationController
 
   def create
     @part = Part.create(part_params)
+    @part.category_id = Category.find_by(name: params[:part][:category]).id
+    @part.save
     flash[:notice] = "Part successfully created."
+    if !@part.errors.empty?
+      raise @part.errors.inspect
+    end
     redirect_to category_part_path(@part.category, @part)
   end
 

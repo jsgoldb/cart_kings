@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :parts
   end
 
+  resources :parts, only: [:show, :new, :create]
+
   resources :admin, only: [:index]
   
   resources :carts

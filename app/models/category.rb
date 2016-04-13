@@ -6,4 +6,9 @@ class Category < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_attachment_presence :image
   validates_uniqueness_of :name
+
+  def self.categories_with_parts
+    where("id IN (?)", Part.all.pluck(:category_id))
+  end
+
 end

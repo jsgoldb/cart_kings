@@ -52,9 +52,9 @@ text-align: left;
 }
 
 .cart {
-    height: 30em;
+    height: 50em;
 }
-
+ 
 
 .category_name_wide {
   position:absolute;
@@ -85,6 +85,30 @@ text-align: left;
 .form-group {
     width: 50%;
 }
+
+.cart .row .btn {
+    position: absolute;
+    bottom: 0;
+}
+
+.cart.thumbnail {
+    height: 30em;
+}
+
+@media(min-width:62em){
+    .cart.thumbnail {
+        height: 40em;
+    }
+}
+
+@media(min-width:80em){
+    .cart.thumbnail {
+        height: 50em;
+    }
+}
+
+
+
 
 
 

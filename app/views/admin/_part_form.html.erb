@@ -1,0 +1,29 @@
+  <%= form_for @part, html: { multipart: true}, role: "form" do |f| %>
+  
+    <div class ="form-group container">
+
+      <%= f.label :description %>
+      <%= f.text_field :description, :class => 'form-control' %>
+
+      <br>
+      <%= f.label :image %>
+      <%= f.file_field :image, :class => 'btn form-control' %>
+      <br>
+      <%= f.label :category %>
+      <%= f.text_field :category, list: "categories_autocomplete" %>
+      <datalist id="categories_autocomplete">
+        <%= @categories.each do |category| %>
+          <option value="<%= category.name %>">
+        <% end %>
+      </datalist>
+      <br>
+      <%= f.label :price %>
+      <%= f.number_field :price, :class => 'form-control' %>
+      <br>
+      <div class = 'text-center'>
+        <%= f.submit nil, :class => 'btn btn-primary'  %>
+      </div>
+    </div>
+
+
+  <% end %>
