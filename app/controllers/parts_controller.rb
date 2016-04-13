@@ -13,9 +13,7 @@ class PartsController < ApplicationController
   end
 
   def create
-    @part = Part.find_or_create_by(description: params[:part][:description], category_id: params[:part][:category_id], price: params[:part][:price])
-    @part.image = params[:part][:image]
-    @part.save
+    @part = Part.create(part_params)
     flash[:notice] = "Part successfully created."
     redirect_to category_part_path(@part.category, @part)
   end
@@ -51,10 +49,10 @@ class PartsController < ApplicationController
     redirect_to category_path(@category)
   end
 
-  # private
+  private
 
-  #   def part_params
-  #     params.require(:part).permit(:description, :image, :category_id, :price)
-  #   end
+    def part_params
+      params.require(:part).permit(:description, :image, :category_id, :price, :category_name)
+    end
 
 end

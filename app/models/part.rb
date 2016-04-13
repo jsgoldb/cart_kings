@@ -6,4 +6,9 @@ class Part < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_attachment_presence :image
   validates_uniqueness_of :description
+
+  def category_name=(name)
+    self.category = Category.find_or_create_by(name: name)
+  end
+
 end

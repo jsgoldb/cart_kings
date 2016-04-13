@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :categories do 
     resources :parts
   end
+
+  resources :admin, only: [:index]
   
   resources :carts
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
