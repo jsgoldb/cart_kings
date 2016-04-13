@@ -40,23 +40,31 @@ class CartPartsController < ApplicationController
   end
 
   def edit
-    @cart = Cart.find[:params_id]
+    @cart_part = CartPart.find(params[:id])
   end
 
   def update
+    @cart_part = CartPart.find(params[:id])
+    @cart_part.update(cart_part_params)
+    flash[:notice] = "Comment Updated."
+    redirect_to my_cart_path
   end
 
   def show
   end
 
   def destroy
-
+    @cart_part = CartPart.find(params[:id])
+    @cart_part.destroy
+    flash[:notice] = "Item removed from Cart"
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to)
   end
 
   private
 
     def cart_part_params
-      params.require[:cart_part].permit(:cart_id, :part_id, :comments, :part_description, :cart_id)
+      params.require(:cart_part).permit(:cart_id, :part_id, :comments, :part_description, :cart_id)
     end
 
 end

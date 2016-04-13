@@ -17,7 +17,7 @@
  
         <img src="<%= part.image.url %>" alt="<%= part.description %>"/>
 
-      <%= button_to 'Add to My Cart', cart_parts_path(part_id: part), {class: 'btn btn-primary'}  %>
+      <%= button_to 'Add to My Cart', add_to_my_cart_path(part_id: part), {class: 'btn btn-primary'}  %>
     </div>
 
   <% end %>

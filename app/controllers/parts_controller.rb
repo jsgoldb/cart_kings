@@ -14,8 +14,11 @@ class PartsController < ApplicationController
 
   def create
     @part = Part.create(part_params)
-    @part.category_id = Category.find_by(name: params[:part][:category]).id
     @part.save
+    if !@part.category
+      @part.category = Category.find_by(name: params[:part][:category])
+      @part.save
+    end
     flash[:notice] = "Part successfully created."
     if !@part.errors.empty?
       raise @part.errors.inspect

@@ -12,7 +12,7 @@
     <h2>Parts On This Cart</h2>
   </div>
   <div>
-    <%= link_to "Add Parts", add_part_path(@cart) %>
+    <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info'} %>
   </div>
 
   <% @cart.parts.each do |part| %>
@@ -23,7 +23,7 @@
       <h3><%= part.description %></h3>
 
       <div class="col-xs-12">
-        <%= button_to 'Add to My Cart', add_to_my_cart_path(part_id: part) %>
+        <%= button_to 'Add to My Cart', add_to_my_cart_path(part_id: part), {class: 'btn btn-info'} %>
       </div>
     </div>
     

@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h1>Add a Comment/Question to This Part:</h1>
+  <%= form_for @cart_part do |f| %>
+    <%= f.text_area :comments %>
+    <div class="row">
+      <%= f.submit 'Update Comment', :class => 'btn btn-info' %>
+    </div>
+  <% end %>
+</div>

@@ -3,7 +3,25 @@
   <div class="thumbnail">
     <%= image_tag @cart.image(:medium) %>
   </div>
-  <%= render partial: 'form', locals: {:@cart => @cart} %>
 
+  <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info'} %>
+  
+  <%= render partial: 'form', locals: {:@cart => @cart} %>
+  <%= button_to "Delete this Cart", cart_path(@cart), {method: :delete, class: 'btn btn-danger', data: {confirm: "Are you sure?"}} %>
+
+
+  <% @cart.parts.each do |part| %>
+    <div class="col-xs-6 thumbnail">
+      <a href="<%= category_part_path(part.category, part) %>">
+        <img src=<%= part.image.url %> alt="">
+      </a>
+      <h3><%= part.description %></h3>
+
+      <div class="col-xs-12">
+        <%= button_to 'Remove From Cart', cart_part_path(CartPart.find_by(cart_id: @cart.id, part_id: part.id)), {method: :delete, class: 'btn btn-warning', data: {confirm: "Are you sure?"}} %>
+      </div>
+    </div>
+    
+  <% end %>
 
 </div>

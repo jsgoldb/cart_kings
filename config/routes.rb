@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  resources :cart_parts, only: [:create]
+  resources :cart_parts, only: [:create, :destroy, :edit, :update]
   
   resources :categories do 
     resources :parts
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   post '/checkout', to: 'carts#my_cart_checkout', as: 'checkout'
 
-  post '/addtomycart', to: 'cart_parts#add_to_my_cart', as: 'add_to_my_cart'
+  post 'addtomycart/:id', to: 'cart_parts#add_to_my_cart', as: 'add_to_my_cart'
   get 'carts/:id/addpart', to: "cart_parts#new", as: 'add_part'
 
   # The priority is based upon order of creation: first created -> highest priority.

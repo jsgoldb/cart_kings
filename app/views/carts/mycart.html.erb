@@ -16,12 +16,25 @@
 
   <% @cart.parts.each do |part| %>
 
-    <!-- <a href="<%= category_part_path(part.category, part) %>"> -->
-      <div class="col-xs-6 col-sm-4 thumbnail">
-        <img src=<%= part.image.url %> alt="">
+    
+    <div class="col-xs-6 col-sm-4 thumbnail text-center">
+      <img src=<%= part.image.url %> alt="">
+
+      <h4>Description</h4>
         <%= part.description %>
+      
+      <h4>My Comments</h4>
+        <%= current_part(part).comments %>
+      <div class="row">
+        <%= button_to 'Update Comment/Question for this Part', edit_cart_part_path(current_part(part)), {class: 'btn btn-success', method: :get} %>
       </div>
-<!--     </a> -->
+      <div class="row">
+        <%= button_to 'Remove From Cart', cart_part_path(current_part(part)), {method: :delete, class: 'btn btn-warning', data: {confirm: "Are you sure?"}} %>
+      </div>
+
+    </div>
+
+
     
   <% end %>
 
