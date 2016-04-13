@@ -36,7 +36,7 @@ class PartsController < ApplicationController
 
   def update
     @part = Part.find(params[:id])
-    @part.update()
+    @part.update(part_params)
     flash[:notice] = "Part successfully updated."
     redirect_to category_part_path(@part.category, @part)
   end

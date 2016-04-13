@@ -4,9 +4,11 @@ class CartPartsController < ApplicationController
   end
 
   def new
+    @cart_part = CartPart.new
+    @cart = Cart.find(params[:id])
   end
 
-  def create
+  def add_to_my_cart
     @user = current_user
     if @user.current_cart
       @cart = @user.current_cart
@@ -25,7 +27,20 @@ class CartPartsController < ApplicationController
     redirect_to session.delete(:return_to)
   end
 
+  def create
+    @part = Part.find_by(description: params[:cart_part][:part])
+    @cart = Cart.find(params[:cart_id])
+    @cart_part = CartPart.find_by(part_id: @part.id, cart_id: @cart.id)
+    if !@cart_part
+      @cart_part = @cart.cart_parts.create(part_id: @part.id, cart_id: @cart.id)
+    end
+    @cart_part.save
+    flash[:notice] = "Part added to Cart"
+    redirect_to cart_path(@cart)
+  end
+
   def edit
+    @cart = Cart.find[:params_id]
   end
 
   def update
@@ -37,5 +52,11 @@ class CartPartsController < ApplicationController
   def destroy
 
   end
+
+  private
+
+    def cart_part_params
+      params.require[:cart_part].permit(:cart_id, :part_id, :comments, :part_description, :cart_id)
+    end
 
 end

@@ -1,0 +1,18 @@
+<%= form_for @cart_part do |f| %>
+
+
+    <div class="text-center">
+     <label>Enter a Part:</label> 
+     <%= f.text_field :part, list: "parts_autocomplete" %>
+      <datalist id="parts_autocomplete">
+        <%= Part.all.each do |part| %>
+          <option value="<%= part.description %>">
+        <% end %>
+      </datalist>
+    
+    </div>
+    <input type="hidden" name="cart_id" value="<%= @cart.id %>" %>
+    <%= f.submit 'Add Parts', :class => 'btn btn-primary'  %>
+
+
+<% end %>

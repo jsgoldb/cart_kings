@@ -1,0 +1,23 @@
+  <%= form_for @cart, html: { multipart: true}, role: "form" do |f| %>
+  
+    <div class ="form-group container">
+
+      <%= f.label :comments %>
+      <%= f.text_field :comments, :class => 'form-control' %>
+
+      <br>
+      <%= f.label :image %>
+      <%= f.file_field :image, :class => 'btn form-control' %>
+
+      <%= f.hidden_field :user_id %>
+      <br>
+      <%= f.label :price %>
+      <%= f.number_field :price, :class => 'form-control' %>
+      <br>
+      <div class = 'text-center'>
+        <%= f.submit nil, :class => 'btn btn-primary'  %>
+      </div>
+    </div>
+
+
+  <% end %>

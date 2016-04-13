@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h1>Edit/Delete Cart</h1>
+  <div class="thumbnail">
+    <%= image_tag @cart.image(:medium) %>
+  </div>
+  <%= render partial: 'form', locals: {:@cart => @cart} %>
+
+
+</div>

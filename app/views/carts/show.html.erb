@@ -1,25 +1,29 @@
 <div class="text-center">
   <div>
-  <%= link_to "Edit/Delete Cart", cart_path(@cart) %>
+  <%= link_to "Edit/Delete Cart", edit_cart_path(@cart) %>
   </div>
 
       <img src=<%= @cart.image.url(:medium) %> alt="">
 
       <h4><%= @cart.comments %></h4>
+      <h3>Cart Price: <%= number_to_currency(@cart.price) %></h3>
 
   <div>
     <h2>Parts On This Cart</h2>
   </div>
+  <div>
+    <%= link_to "Add Parts", add_part_path(@cart) %>
+  </div>
 
   <% @cart.parts.each do |part| %>
-    <div class="col-xs-6">
+    <div class="col-xs-6 thumbnail">
       <a href="<%= category_part_path(part.category, part) %>">
         <img src=<%= part.image.url %> alt="">
       </a>
       <h3><%= part.description %></h3>
 
       <div class="col-xs-12">
-        <%= button_to 'Add to My Cart', cart_parts_path(part_id: part) %>
+        <%= button_to 'Add to My Cart', add_to_my_cart_path(part_id: part) %>
       </div>
     </div>
     
