@@ -8,7 +8,7 @@
   <h2><%= @cart.comments %></h2>
 
   <div class="text-center">
-    <% if add_info_or_submit == "submit" %>
+    <% if current_user.name %>
       <%= render 'submit_quote_button' %>
     <% else %>
       <%= render 'add_info_button' %>
