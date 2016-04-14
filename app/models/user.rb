@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :carts
   has_one :current_cart, class_name: "Cart"
+  validates :phone, phone: true, allow_blank: true
 
 
   def self.from_omniauth(auth)

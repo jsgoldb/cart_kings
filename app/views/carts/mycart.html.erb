@@ -8,7 +8,11 @@
   <h2><%= @cart.comments %></h2>
 
   <div class="text-center">
-    <%= button_to 'Get A Quote / Request Info', checkout_path, {class: 'btn btn-primary'} %>
+    <% if add_info_or_submit == "submit" %>
+      <%= render 'submit_quote_button' %>
+    <% else %>
+      <%= render 'add_info_button' %>
+    <% end %>
   </div>
 
 

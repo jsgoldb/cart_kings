@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   resources :admin, only: [:index]
   
   resources :carts
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
+  
   root 'application#index'
 
   resources 'contacts', only: [:new, :create]
+  
   get '/contacts', to: 'contacts#new'
 
   get '/mycart', to: 'carts#show_my_cart', as: 'my_cart'
@@ -23,7 +26,16 @@ Rails.application.routes.draw do
   post '/checkout', to: 'carts#my_cart_checkout', as: 'checkout'
 
   post 'addtomycart/:id', to: 'cart_parts#add_to_my_cart', as: 'add_to_my_cart'
+  
   get 'carts/:id/addpart', to: "cart_parts#new", as: 'add_part'
+  
+  get '/', to: 'application#index'
+
+  resources :users, only: [:index, :show, :edit, :update]
+
+  get '/addinfo', to: 'users#edit', as: 'add_info'
+
+  match '/finish-checkout', to: "carts#my_cart_checkout", via: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

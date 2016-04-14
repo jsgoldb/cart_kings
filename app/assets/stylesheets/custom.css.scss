@@ -112,11 +112,40 @@ text-align: left;
     width: 8em;
 }
 
-.navbar-custom {
-    color: #FFFFFF;
-    background-color: #CC3333;
+.navbar-default .navbar-brand {
+  color: black;
 }
 
+h1 {
+  color:#80BCCF;
+}
+
+.navbar.navbar-inverse.navbar-static-top.navbar-transparent{
+  background:transparent;
+  border: none;
+}
+
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    background:transparent;
+}
+
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #CBD4D6;
+}
+
+.centerBlock {
+    display: table;
+    margin: 0 auto;
+}
+
+.simple_form.form-horizontal {
+    border: none;
+}
 
 
 

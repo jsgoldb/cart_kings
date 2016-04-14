@@ -1,11 +1,14 @@
 class CartPartsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
   end
 
   def new
     @cart_part = CartPart.new
     @cart = Cart.find(params[:id])
+    return head(:forbidden) if !can_modify_cart?(@cart)
   end
 
   def add_to_my_cart
@@ -30,6 +33,7 @@ class CartPartsController < ApplicationController
   def create
     @part = Part.find_by(description: params[:cart_part][:part])
     @cart = Cart.find(params[:cart_id])
+    return head(:forbidden) if !can_modify_cart?(@cart)
     @cart_part = CartPart.find_by(part_id: @part.id, cart_id: @cart.id)
     if !@cart_part
       @cart_part = @cart.cart_parts.create(part_id: @part.id, cart_id: @cart.id)
@@ -45,6 +49,8 @@ class CartPartsController < ApplicationController
 
   def update
     @cart_part = CartPart.find(params[:id])
+    @cart = Cart.find(@cart_part.cart_id)
+    return head(:forbidden) if !can_modify_cart?(@cart)
     @cart_part.update(cart_part_params)
     flash[:notice] = "Comment Updated."
     redirect_to my_cart_path
@@ -55,6 +61,8 @@ class CartPartsController < ApplicationController
 
   def destroy
     @cart_part = CartPart.find(params[:id])
+    @cart = Cart.find(@cart_part.cart_id)
+    return head(:forbidden) if !can_modify_cart?(@cart)
     @cart_part.destroy
     flash[:notice] = "Item removed from Cart"
     session[:return_to] ||= request.referer

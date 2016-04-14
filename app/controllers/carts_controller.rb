@@ -1,4 +1,7 @@
 class CartsController < ApplicationController
+
+  before_action :authenticate_user!
+  before_action :is_admin, only: [:new, :edit]
   
   def index
     @carts = Cart.where.not(image_file_name: nil)
@@ -25,6 +28,7 @@ class CartsController < ApplicationController
 
   def update
     @cart = Cart.find(params[:id])
+    return head(:forbidden) if !can_modify_cart?(@cart)
     @cart.update(cart_params)
     flash[:notice] = "Cart successfully updated."
     redirect_to cart_path(@cart)
@@ -32,6 +36,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
+    return head(:forbidden) if !can_modify_cart?(@cart)
   end
 
   def show_my_cart
@@ -41,6 +46,7 @@ class CartsController < ApplicationController
 
   def destroy
     @cart = Cart.find(params[:id])
+    return head(:forbidden) if !can_modify_cart?(@cart)
     @cart.destroy
     flash[:notice] = "Cart Deleted."
     redirect_to carts_path
