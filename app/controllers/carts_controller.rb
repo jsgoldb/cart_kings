@@ -1,7 +1,8 @@
 class CartsController < ApplicationController
+  include ApplicationHelper
 
   before_action :authenticate_user!
-  before_action :is_admin, only: [:new, :edit]
+  before_action :is_admin?, only: [:new, :edit]
   
   def index
     @carts = Cart.where.not(image_file_name: nil)
