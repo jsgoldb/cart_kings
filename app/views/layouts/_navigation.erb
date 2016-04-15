@@ -7,7 +7,7 @@
         <nav class="navbar navbar-inverse navbar-static-top navbar-transparent">
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -19,20 +19,20 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav nav-pills">
-                <li class="<%= 'active' if params[:controller] == 'application' %>"><a href="/">Home</a></li>
-                <li><a href="/#about">About</a></li>
-                <li class="<%= 'active' if params[:controller] == 'contacts' %>"><a href="/contacts/new">Contact</a></li>
-                <li class="<%= 'active' if params[:controller] == 'carts' %>"><a href="/carts">Warehouse</a></li>
-                <li class="<%= 'active' if params[:controller] == 'categories' %>"><a href="/categories">Catalog</a></li>
+                <li class="<%= 'active' if params[:controller] == 'application' %>"><a class= "nav-custom" href="/">Home</a></li>
+                <li><a class = "nav-custom" href="/#about">About</a></li>
+                <li class="<%= 'active' if params[:controller] == 'contacts' %>"><a class= "nav-custom" href="/contacts/new">Contact</a></li>
+                <li class="<%= 'active' if params[:controller] == 'carts' %>"><a class= "nav-custom" href="/carts">Warehouse</a></li>
+                <li class="<%= 'active' if params[:controller] == 'categories' %>"><a class="nav-custom" href="/categories">Catalog</a></li>
 
                 <% if !user_signed_in? %>
-                  <li ><%= link_to 'Log In', new_user_session_path %><span class="sr-only">(current)</span></li>
-                  <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                  <li ><%= link_to 'Log In', new_user_session_path, {class: 'nav-custom'} %><span class="sr-only">(current)</span></li>
+                  <li><%= link_to 'Sign Up', new_user_registration_path, {class: 'nav-custom'} %></li>
                 <% else %>
-                  <li><%= link_to 'My Cart', my_cart_path %></li>
-                  <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to 'My Cart', my_cart_path, {class: 'nav-custom'} %></li>
+                  <li><%= link_to 'Log Out', destroy_user_session_path, {class: 'nav-custom', method: :delete} %></li>
                 <% end %>
-<!--                 <li class="dropdown">
+  <!--               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Action</a></li>

@@ -1,14 +1,21 @@
 <% if @category.child_categories.empty? %>
   <%= render partial: 'toggle', locals: {:@category => @category} %>
 
+
+<% if current_user && current_user.admin %>
   <div class="text-center">
     <%= button_to "Add Part to This Category", new_category_part_path(@category), {class: 'btn btn-primary', method: :get} %>
   </div>
+<% elsif !user_signed_in? %>
+  <div class="text-center">
+    <%= button_to 'Sign in to Add Parts to your Cart', new_user_session_path, {class: 'btn btn-success', method: :get} %>
+  </div>
+<% end %>
 
   <% @category.parts.each do |part| %>
 
     <div class="col-xs-6 col-sm-3 thumbnail part text-center">
-      <% if current_user.admin %>
+      <% if current_user && current_user.admin %>
         <%= link_to "View Part to Edit/Delete", category_part_path(@category,part) %>
       <% end %>
 
@@ -17,8 +24,9 @@
       </div>
  
         <img src="<%= part.image.url %>" alt="<%= part.description %>"/>
-
-      <%= button_to 'Add to My Cart', add_to_my_cart_path(part_id: part), {class: 'btn btn-primary'}  %>
+      <% if user_signed_in? %>
+        <%= button_to 'Add to My Cart', add_to_my_cart_path(part_id: part), {class: 'btn btn-primary'}  %>
+      <% end %>
     </div>
 
   <% end %>

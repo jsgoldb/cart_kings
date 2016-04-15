@@ -118,12 +118,10 @@ h1 {
 
 
 button.navbar-toggle{
-    background-color: #747D7D !important;
+    background-color: #337ab7 !important;
 }
 
-.navbar a:hover, .navbar a:active {
-    background-color: #747D7D !important;
-}
+
 
 
 .centerBlock {
@@ -172,6 +170,19 @@ button.navbar-toggle{
     bottom: 0px;
     padding: 0 40px 50px 40px;
     width: 100%;
+}
+
+a:hover {
+    background-color: #337ab7 !important;
+}
+
+.nav-custom {
+    color: #337ab7 !important;
+    font-weight: bold;
+}
+
+a:hover.nav-custom{
+    color: white !important;
 }
 
 
