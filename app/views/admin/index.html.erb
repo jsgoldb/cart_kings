@@ -4,8 +4,11 @@
 
   <%= render partial: 'part_form', locals: {:@part => @part, :@categories => @categories} %>
 
+  <h2><%= link_to 'Add New Cart', new_cart_path %></h2>
+
   <h2><%= link_to 'View All Users', users_path %></h2>
 
 
   <h2><%= link_to 'View All Orders', orders_path %></h2>
+
 </div>
