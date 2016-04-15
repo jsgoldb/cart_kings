@@ -2,10 +2,10 @@
   <h3>Contact Us for Info, Questions, or Just to Say Hi!</h3>
 
   <%= simple_form_for @contact, :html => {:class => 'form-horizontal'} do |f| %>
-    <%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :number, :label => 'Phone Number' %>
-    <%= f.input :message, :as => :text, :required => true %>
+      <%= f.input :name, :required => true %>
+      <%= f.input :email, type: 'email', :required => true %>
+      <%= f.input :number, type: 'tel', required: false, label: 'Phone Number (optional) XXX-XXX-XXXX'  %>
+      <%= f.input :message, :as => :text, :required => true %>
     <div class= "hidden">
       <%= f.input :nickname, :hint => 'Leave this field blank!' %>
     </div>

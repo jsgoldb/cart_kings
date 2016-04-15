@@ -4,9 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @user.email %> has sent a quote request for the following items:
-    <p></p>
-      <%= @cart.parts %>
-    </p>
+    <div class="text-center centerBlock">
+      <h1><%= @user.email %> has sent a quote request!</h1>
+      <h2>Name: <%= @user.name %></h2>
+      <h4>If the User wishes to be contacted by phone, their preferred contact number and time to contact will appear below:</h4>
+      <h3>Contact Number: <%= @user.phone %></h3>
+      <h3>Best Time to Reach: <%= @user.contact_time %></h3>
+      <p></p>
+      <h2>Parts in cart:</h2>
+        <% @cart.parts.each do |part|%>
+          <h3><%= part.description %></h3>
+          <h3>User Comments/Questions about this part:</h3>
+          <h4><%= CartPart.find_by(cart_id: @cart.id, part_id: part.id).comments %></h4>
+        <% end %>
+    </div>
   </body>
 </html>

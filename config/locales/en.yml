@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            number:
+              invalid: 'Phone Number must include area code and dashes: XXX-XXX-XXXX'
+
