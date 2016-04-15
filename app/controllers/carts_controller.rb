@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   include ApplicationHelper
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :is_admin?, only: [:new, :edit]
   
   def index

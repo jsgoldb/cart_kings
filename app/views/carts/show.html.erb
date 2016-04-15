@@ -1,6 +1,6 @@
 <div class="text-center">
   
-  <% if current_user.admin %>
+  <% if current_user && current_user.admin %>
     <div>
     <%= link_to "Edit/Delete Cart", edit_cart_path(@cart) %>
     </div>
@@ -14,8 +14,8 @@
   <div>
     <h2>Parts On This Cart</h2>
   </div>
-  
-  <% if current_user.admin %>
+
+  <% if current_user && current_user.admin %>
     <div>
       <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info', method: :get} %>
     </div>
