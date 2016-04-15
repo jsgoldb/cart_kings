@@ -1,0 +1,17 @@
+<div class="text-center centerBlock">
+  <h3><table>
+    <th><tr><%= @user.email %></tr></th><br>
+    <tr><%= @user.name %></tr><br>
+    <tr><%= @user.phone %></tr><br>
+    <tr><%= @user.contact_time %></tr><br>
+    <tr><th>User Carts:</th></tr>
+    <% if !@user.carts.empty? %>
+      <% @user.carts.each do |cart| %>
+        <td><a href="/carts/<%= cart.id %>" class="href">
+          <%= cart.created_at.to_formatted_s(:long_ordinal) %>
+        </a></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table></h3>
+</div>

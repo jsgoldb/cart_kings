@@ -8,7 +8,7 @@ class CartsController < ApplicationController
     @carts = Cart.where.not(image_file_name: nil)
   end
 
-  def new
+  def new 
     @cart = current_user.carts.new
   end
 
@@ -66,6 +66,8 @@ class CartsController < ApplicationController
       flash.now[:error] = 'Cannot send message.'
       render cart_path(@cart)
     end
+    #create new cart to store for admin records 
+    @cart = Cart.create(user_id: current_user.id)
     render :'application/index'
   end
 

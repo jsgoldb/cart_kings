@@ -1,5 +1,8 @@
-<div class="text-center">
+<div class="text-center centerBlock">
   <h2>Create a New Part</h2>
-</div>
+
 
 <%= render partial: 'part_form', locals: {:@part => @part, :@categories => @categories} %>
+
+<h2><%= link_to 'View All Users', users_path %></h2>
+</div>

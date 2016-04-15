@@ -1,0 +1,9 @@
+<% @users.each do |user| %> 
+
+<h2>
+  <a href="/users/<%= user.id %>" class="href">
+    <%= user.email %> - <%= user.name if user.name %>
+  </a>
+</h2>
+
+<% end %> 

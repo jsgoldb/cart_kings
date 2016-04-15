@@ -9,7 +9,7 @@
       <%= f.label :image %>
       <%= f.file_field :image, :class => 'btn form-control' %>
       <br>
-      <%= f.label :category %>
+      <%= f.label :category %><br>
       <%= f.text_field :category, list: "categories_autocomplete" %>
       <datalist id="categories_autocomplete">
         <%= @categories.each do |category| %>

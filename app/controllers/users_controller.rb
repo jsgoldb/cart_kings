@@ -4,9 +4,11 @@ class UsersController < ApplicationController
   before_action :is_admin?, only: [:index, :show]
 
   def index
+    @users = User.all.where(admin: false)
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
