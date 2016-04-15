@@ -1,22 +1,27 @@
 
 <% @carts.each do |cart| %>
 
-  <div class="col-xs-6 col-sm-3 thumbnail cart">
+  <div class="col-xs-6 col-sm-3 thumbnail text-center cart">
+
+    <% if current_user.admin %>
+      <div class="row">
+        <%= link_to "Edit/Delete Cart", cart_path(cart) %>
+      </div>
+    <% end %>
+
+
+    <div class="cart_comments col-xs-12 row text-center">
+      <h4><%= cart.comments %></h4>
+    </div>
+
+      <img src="<%= cart.image.url %>" alt="<%= cart.comments %>" class="<%= 'rotate' unless dont_rotate(cart) %>"/><br>
 
     <div class="row">
-      <%= link_to "Edit/Delete Cart", cart_path(cart) %>
-    </div>
-
-
-    <div class="cart_comments col-xs-12 row">
-      <%= cart.comments %>
-    </div>
-    
-      <img src="<%= cart.image.url %>" alt="<%= cart.comments %>" class="<%= 'rotate' unless dont_rotate(cart) %>"/>
-
-    <div class="row">    
       <%= button_to 'View This Cart', cart_path(cart),{class: 'btn btn-primary', method: :get}  %>
     </div>
+
+
+
   </div>
 
 <% end %>

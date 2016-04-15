@@ -22,6 +22,9 @@
                 <li class="<%= 'active' if params[:controller] == 'application' %>"><a href="/">Home</a></li>
                 <li><a href="/#about">About</a></li>
                 <li class="<%= 'active' if params[:controller] == 'contacts' %>"><a href="/contacts/new">Contact</a></li>
+                <li class="<%= 'active' if params[:controller] == 'carts' %>"><a href="/carts">Warehouse</a></li>
+                <li class="<%= 'active' if params[:controller] == 'categories' %>"><a href="/categories">Catalog</a></li>
+
                 <% if !user_signed_in? %>
                   <li ><%= link_to 'Log In', new_user_session_path %><span class="sr-only">(current)</span></li>
                   <li><%= link_to 'Sign Up', new_user_registration_path %></li>

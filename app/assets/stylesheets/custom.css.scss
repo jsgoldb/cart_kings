@@ -51,9 +51,7 @@ text-align: left;
     height: 30em;
 }
 
-.cart {
-    height: 50em;
-}
+
  
 
 .category_name_wide {
@@ -68,15 +66,16 @@ text-align: left;
   color: #fff;
 }
 
-
+.cart {
+    height: 50em;
+}
 
 .form-group {
     width: 50%;
 }
 
 .cart .row .btn {
-    position: absolute;
-    bottom: 0;
+    position: relative;
 }
 
 .cart.thumbnail {
@@ -118,13 +117,14 @@ h1 {
 }
 
 
-.navbar-toggle .icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    border-radius: 1px;
-    background-color: #CBD4D6;
+button.navbar-toggle{
+    background-color: #747D7D !important;
 }
+
+.navbar a:hover, .navbar a:active {
+    background-color: #747D7D !important;
+}
+
 
 .centerBlock {
     display: table;
@@ -134,6 +134,46 @@ h1 {
 .simple_form.form-horizontal {
     border: none;
 }
+
+.carousel {
+    max-width: 800px;
+}
+
+.centered {
+    margin: 0 auto;
+}
+
+@media(max-width:500px){
+    .item.pickgradient {
+        max-height: 320px !important;
+    }
+}
+
+.carousel-control span {
+    width: auto !important;
+    height: auto !important;
+    border-radius: 50%;
+    padding: 5px;
+    background-image: -webkit-radial-gradient(circle at center, rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: -o-radial-gradient(circle at center, rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: radial-gradient(circle at center, rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+}
+.carousel-inner > .item > img {
+    overflow: hidden;
+}
+
+.carousel-caption {
+    left: 0 !important;
+    right: 0 !important;
+    background-image: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.5) 100%);
+    background-image: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.5) 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,.5)));
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.5) 40%);
+    bottom: 0px;
+    padding: 0 40px 50px 40px;
+    width: 100%;
+}
+
 
 
 

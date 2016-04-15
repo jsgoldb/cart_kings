@@ -1,7 +1,10 @@
 <div class="text-center">
-  <div>
-  <%= link_to "Edit/Delete Cart", edit_cart_path(@cart) %>
-  </div>
+  
+  <% if current_user.admin %>
+    <div>
+    <%= link_to "Edit/Delete Cart", edit_cart_path(@cart) %>
+    </div>
+  <% end %>
 
       <img src=<%= @cart.image.url(:medium) %> alt="">
 
@@ -11,9 +14,12 @@
   <div>
     <h2>Parts On This Cart</h2>
   </div>
-  <div>
-    <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info'} %>
-  </div>
+  
+  <% if current_user.admin %>
+    <div>
+      <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info', method: :get} %>
+    </div>
+  <% end %>
 
   <% @cart.parts.each do |part| %>
     <div class="col-xs-6 thumbnail">

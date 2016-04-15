@@ -1,0 +1,17 @@
+<div class="text-center centerBlock">
+  <h2>Order Date:</h2>
+  <h4><%= @order.created_at.to_formatted_s(:long_ordinal) %></h4>
+
+  <h2>User:</h2>
+  <a href="/users/<%= @order.user_id %>" class="href">
+    <h4><%= @order.user.email %></h4>
+    <h4><%= @order.user.name %></h4>
+  </a>
+
+  <h3>Parts:</h3>
+  <% @order.parts.each do |part| %>
+    <a href="/categories/<%= part.category_id %>/parts/<%= part.id %>" class="href">
+      <h5><%= part.description %></h5>
+    </a>
+  <% end %>
+</div>

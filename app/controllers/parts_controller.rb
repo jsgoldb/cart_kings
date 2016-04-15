@@ -1,7 +1,7 @@
 class PartsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :is_admin?, only: [:new, :create, :edit, :update, :destory]
+  before_action :is_admin?, only: [:new, :create, :edit, :update, :destory, :show]
 
   def index
   end

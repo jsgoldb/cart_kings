@@ -37,7 +37,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-    return head(:forbidden) if !can_modify_cart?(@cart)
+    #return head(:forbidden) if !can_modify_cart?(@cart)
   end
 
   def show_my_cart
@@ -66,8 +66,13 @@ class CartsController < ApplicationController
       flash.now[:error] = 'Cannot send message.'
       render cart_path(@cart)
     end
-    #create new cart to store for admin records 
-    @cart = Cart.create(user_id: current_user.id)
+    #create new order to store for admin records 
+    @order = Order.create(user_id: current_user.id)
+    @cart.parts.each do |part| 
+      @order_part = OrderPart.create(part_id: part.id, order_id: @order.id)
+      @order_part.save
+    end
+    @order.save
     render :'application/index'
   end
 

@@ -1,0 +1,9 @@
+<div class="text-center centerBlock">
+  <% @orders.each do |order| %>
+
+    <a href="orders/<%= order.id %>">
+      <h3><%= order.user.email %>  -  <%= order.created_at.to_formatted_s(:long_ordinal) %></h3>
+    </a>
+
+  <% end %>
+</div>
