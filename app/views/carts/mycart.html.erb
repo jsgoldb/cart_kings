@@ -1,4 +1,4 @@
- <% if !@cart.parts.empty? %>
+ <% if @cart && !@cart.parts.empty? %>
   <h1 class= "text-center">My Cart</h1>
 
   <h2><%= @cart.comments %></h2>
