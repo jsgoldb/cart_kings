@@ -6,6 +6,10 @@ class CartsController < ApplicationController
   
   def index
     @carts = Cart.where.not(image_file_name: nil)
+    respond_to do |f|
+      f.html { render :index}
+      f.json { render json: @carts}
+    end
   end
 
   def new 

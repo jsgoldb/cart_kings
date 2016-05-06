@@ -22,7 +22,7 @@
                 <li class="<%= 'active' if params[:controller] == 'application' %>"><a class= "nav-custom" href="/">Home</a></li>
                 <li><a class = "nav-custom" href="/#about">About</a></li>
                 <li class="<%= 'active' if params[:controller] == 'contacts' %>"><a class= "nav-custom" href="/contacts/new">Contact</a></li>
-                <li class="<%= 'active' if params[:controller] == 'carts' %>"><a class= "nav-custom" href="/carts">Warehouse</a></li>
+                <li class="<%= 'active' if params[:controller] == 'carts' %>"><a class= "nav-custom c-warehouse" href="/carts">Warehouse</a></li>
                 <li class="<%= 'active' if params[:controller] == 'categories' %>"><a class="nav-custom" href="/categories">Catalog</a></li>
 
                 <% if !user_signed_in? %>
