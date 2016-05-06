@@ -37,7 +37,6 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-    #return head(:forbidden) if !can_modify_cart?(@cart)
   end
 
   def show_my_cart

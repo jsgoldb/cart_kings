@@ -39,6 +39,10 @@ Rails.application.routes.draw do
 
   match '/finish-checkout', to: "carts#my_cart_checkout", via: :post
 
+  get '/search', to: 'parts#search_show', as: 'part_search_show_path'
+  
+  post '/search', to: 'parts#search', as: 'part_seach_path'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,14 +1,14 @@
 <div class="text-center centerBlock">
   <%= link_to 'Back to Users', users_path %>
   <table class = "table table-bordered">
-    <caption><%= @user.email %></a>
+    <caption class="text-center"><%= @user.email %> Info
     </caption>
     <thead>
       <tr>
         <th>Name</th>
         <th>Phone Number</th>
         <th>Contact Time</th>
-        <th>Request History</th>
+        <th>Number of Requests</th>
       <tr>
     </thead>
 
@@ -17,18 +17,16 @@
         <td><%= @user.name %></td>
         <td><%= @user.phone %></td>
         <td><%= @user.contact_time %></td>
-        <td>User Requests:</td>
-      </tr>
-      <tr>
-          <% @user.orders.each do |order| %>
-            <td> </td>
-            <td></td>
-            <td></td>
-            <td><a href="/orders/<%= order.id %>" class="href">
-              <%= order.created_at.to_formatted_s(:long_ordinal) %>
-            </a></td>
-          <% end %>
+        <td><%= @user.orders.count %></td>
       </tr>
     </tbody>
   </table>
+
+
+    <h4 class="text-center"><%= @user.email %> Request History</h2>
+      <% @user.orders.each do |order| %>
+        <tr><a href="/orders/<%= order.id %>" class="href">
+          <%= order.created_at.to_formatted_s(:long_ordinal) %>
+        </a></tr>
+      <% end %>
 </div>

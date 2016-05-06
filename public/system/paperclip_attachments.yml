@@ -1,0 +1,13 @@
+---
+:Cart:
+  :image:
+  - :medium
+  - :thumb
+:Category:
+  :image:
+  - :medium
+  - :thumb
+:Part:
+  :image:
+  - :medium
+  - :thumb

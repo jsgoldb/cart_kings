@@ -1,0 +1,7 @@
+<%= form_tag({controller: "parts", action: "search"}, method: "post")  do  %>
+
+  <%= label_tag :description %>
+  <%= text_field_tag :description %>
+  <%= submit_tag("Search")  %>
+
+<% end %>
