@@ -51,6 +51,12 @@ gem 'simple_form'
 
 gem 'active_model_serializers'
 
+#fixes Rails 4 issue of turbolinks breaking document ready
+gem 'jquery-turbolinks'
+
+#passing rails data to js
+gem 'gon'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

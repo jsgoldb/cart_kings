@@ -6,6 +6,16 @@ class CartsController < ApplicationController
   
   def index
     @carts = Cart.where.not(image_file_name: nil)
+    if current_user
+      gon.watch.logged_in = 'true'
+      if current_user.admin
+        gon.watch.admin = 'true'
+      else
+        gon.watch.admin = 'false'
+      end
+    else
+      gon.watch.logged_in = 'false'
+    end
     respond_to do |f|
       f.html { render :index}
       f.json { render json: @carts}
@@ -41,6 +51,10 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
+    respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @cart }
+    end
   end
 
   def show_my_cart
