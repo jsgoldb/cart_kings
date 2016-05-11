@@ -1,6 +1,6 @@
-  <%= form_for @cart, html: { multipart: true}, role: "form" do |f| %>
+  <%= form_for @cart, remote: true, authenticity_token: true, html: { multipart: true, data: {id: @cart.id}}, role: "form" do |f| %>
   
-    <div class ="form-group container">
+    <div class ="form-group container js-updateCart">
 
       <%= f.label :comments %>
       <%= f.text_field :comments, :class => 'form-control' %>
@@ -15,7 +15,7 @@
       <%= f.number_field :price, :class => 'form-control' %>
       <br>
       <div class = 'text-center'>
-        <%= f.submit nil, :class => 'btn btn-success'  %>
+        <%= f.submit nil, :class => 'btn btn-success', data: {id: @cart.id}  %>
       </div>
     </div>
 

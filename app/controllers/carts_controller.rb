@@ -24,6 +24,17 @@ class CartsController < ApplicationController
 
   def new 
     @cart = current_user.carts.new
+
+    if current_user
+      gon.watch.logged_in = 'true'
+      if current_user.admin
+        gon.watch.admin = 'true'
+      else
+        gon.watch.admin = 'false'
+      end
+    else
+      gon.watch.logged_in = 'false'
+    end
   end
 
   def create
@@ -39,14 +50,25 @@ class CartsController < ApplicationController
 
   def edit
     @cart = Cart.find(params[:id])
+
+    if current_user
+      gon.watch.logged_in = 'true'
+      if current_user.admin
+        gon.watch.admin = 'true'
+      else
+        gon.watch.admin = 'false'
+      end
+    else
+      gon.watch.logged_in = 'false'
+    end
+
   end
 
   def update
     @cart = Cart.find(params[:id])
-    return head(:forbidden) if !can_modify_cart?(@cart)
     @cart.update(cart_params)
-    flash[:notice] = "Cart successfully updated."
-    redirect_to cart_path(@cart)
+    return head(:forbidden) if !can_modify_cart?(@cart)
+    render json: @cart
   end
 
   def show

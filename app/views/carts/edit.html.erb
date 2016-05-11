@@ -1,10 +1,10 @@
-<div class="text-center">
+<div class="text-center" id="js-cart">
   <h1>Edit/Delete Cart</h1>
   <div class="thumbnail">
     <%= image_tag @cart.image(:medium) %>
   </div>
 
-  <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info'} %>
+  <%= button_to "Add Parts", add_part_path(@cart), {class: 'btn btn-info', method: 'get'} %>
   
   <%= render partial: 'form', locals: {:@cart => @cart} %>
   <%= button_to "Delete this Cart", cart_path(@cart), {method: :delete, class: 'btn btn-danger', data: {confirm: "Are you sure?"}} %>
@@ -25,3 +25,5 @@
   <% end %>
 
 </div>
+
+<%= include_gon %>

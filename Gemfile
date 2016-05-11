@@ -57,6 +57,9 @@ gem 'jquery-turbolinks'
 #passing rails data to js
 gem 'gon'
 
+#ajax file upload
+gem 'remotipart', '~> 1.2'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

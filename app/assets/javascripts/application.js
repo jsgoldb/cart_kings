@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require bootstrap-sprockets
 //= require jquery-readyselector
 //= require_tree .

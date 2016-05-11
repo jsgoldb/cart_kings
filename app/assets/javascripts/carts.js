@@ -16,6 +16,7 @@ function loadCart(cartID){
   });
 }
 
+
 function CartToShow (id, comments, price, image, parts){
   this.id = id;
   this.comments = comments;
@@ -39,7 +40,9 @@ function CartToShow (id, comments, price, image, parts){
       cartString += '<h3>Cart Price: ' + cart.price + ' </h3>';
     };
 
-    cartString += '<div><h2>Parts On This Cart</h2></div>'; 
+    if (cart.parts.length > 0){
+      cartString += '<div><h2>Parts On This Cart</h2></div>';
+    } 
 
       cart.parts.forEach(function(part){
         cartString += '<div class="col-xs-6 thumbnail">' +
@@ -50,7 +53,7 @@ function CartToShow (id, comments, price, image, parts){
 
     cartString += '<div class="col-xs-12">';
 
-      if (gon.logged_in === 'true'){
+      if (gon.admin === 'true'){
         cartString += '<form class="button_to" method="get" action="/carts/' + cart.id + '/addpart"><input class="btn btn-success" type="submit" value="Add Parts To This Cart"></form>';
       }
 
@@ -58,7 +61,6 @@ function CartToShow (id, comments, price, image, parts){
     return cartString;
   }
 }
-
 
 function number_to_currency(number, options) {
   try {
@@ -84,6 +86,8 @@ function showThisCart(cart) {
   }, 'slow');
   location.hash = 1;
 }
+
+
 
 
 

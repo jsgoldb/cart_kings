@@ -17,7 +17,9 @@
 
     
     <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
+      <% unless name.to_s == 'timedout' %>
+        <%= content_tag :div, msg, class: name %>
+      <% end %>
     <% end -%>
 
 

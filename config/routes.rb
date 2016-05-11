@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  resources :cart_parts, only: [:create, :destroy, :edit, :update]
+  resources :cart_parts, only: [:create, :destroy, :edit, :update, :new]
   
   resources :categories do 
     resources :parts
