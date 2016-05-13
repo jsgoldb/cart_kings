@@ -21,34 +21,3 @@ function addEditCartListeners(){
   });
 }
 
-
-// function updateCart(cartId){
-//   var method = "PATCH";
-//   var comments = $('#cart_comments').val();
-//   var image = $('#cart_image').val();
-//   var price = $('#cart_price').val();
-//   var patch = $.ajax({
-//     url: '/carts/' + cartId,
-//     method: method,
-//     data: {cart:
-//        {
-//         image: image,
-//         price: price,
-//         comments: comments
-//       },
-//       id: cartId
-//     } 
-//   });
-
-//   patch.done(function(response) {
-//     showThisCart(response);
-//   });
-
-// }
-
-
-// function showEditedCart(cart) {
-//   var editedCart = new CartToShow(cart.id, cart.comments, cart.price, cart.image_medium, cart.parts);
-//   $('#cart').html(newCart.renderTheCart)
-// }
-

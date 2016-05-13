@@ -20,10 +20,9 @@ function loadCart(cartID){
 function CartToShow (id, comments, price, image, parts){
   this.id = id;
   this.comments = comments;
-  this.price = number_to_currency(price);
+  this.price = price;
   this.image = image;
   this.parts = parts;
-
   this.renderTheCart = function(cart){
     var cartString = '<div class="text-center">';
 
@@ -37,7 +36,7 @@ function CartToShow (id, comments, price, image, parts){
     };
 
     if (cart.price){
-      cartString += '<h3>Cart Price: ' + cart.price + ' </h3>';
+      cartString += '<h3>Cart Price: $' + cart.price + '0 </h3>';
     };
 
     if (cart.parts.length > 0){
@@ -62,20 +61,6 @@ function CartToShow (id, comments, price, image, parts){
   }
 }
 
-function number_to_currency(number, options) {
-  try {
-    var options   = options || {};
-    var precision = options["precision"] || 2;
-    var unit      = options["unit"] || "$";
-    var separator = precision > 0 ? options["separator"] || "." : "";
-    var delimiter = options["delimiter"] || ",";
-  
-    var parts = parseFloat(number).toFixed(precision).split('.');
-    return unit + number_with_delimiter(parts[0], delimiter) + separator + parts[1].toString();
-  } catch(e) {
-    return number;
-  }
-}
 
 function showThisCart(cart) {
   var newCart = new CartToShow(cart.id, cart.comments, cart.price, cart.image_medium, cart.parts);
