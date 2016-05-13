@@ -28,7 +28,7 @@ function CartToShow (id, comments, price, image, parts){
     var cartString = '<div class="text-center">';
 
     if(gon.admin === 'true'){
-      cartString += '<div><a href="/carts/' + cart.id + '/edit">Edit/Delete Cart</a></div>'
+      cartString += '<div><a href="/carts/' + cart.id + '/edit">Edit/Delete Cart</a></div>';
     }
     cartString += '<img src="' + cart.image + '" alt="">';
 

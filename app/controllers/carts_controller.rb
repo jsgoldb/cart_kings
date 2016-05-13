@@ -35,17 +35,20 @@ class CartsController < ApplicationController
     else
       gon.watch.logged_in = 'false'
     end
+
   end
 
   def create
+    binding.pry
     @cart = Cart.create(cart_params)
     @cart.user_id = User.find(params[:cart][:user_id])
     @cart.save
-    flash[:notice] = "Cart successfully created."
-    if !@cart.errors.empty?
-      raise @cart.errors.inspect
+    flash.now[:notice] = "Cart successfully created."
+    cartClone = @cart #handles remotipart calling action twice
+    if @cart.image_file_name = nil
+      @cart.destroy
     end
-    redirect_to cart_path(@cart)
+    render json: cartClone
   end
 
   def edit
@@ -65,13 +68,27 @@ class CartsController < ApplicationController
   end
 
   def update
+    binding.pry
     @cart = Cart.find(params[:id])
+    binding.pry
     @cart.update(cart_params)
+    binding.pry
     return head(:forbidden) if !can_modify_cart?(@cart)
+    flash.now[:notice] = "Cart successfully updated."
     render json: @cart
   end
 
   def show
+    if current_user
+      gon.watch.logged_in = 'true'
+      if current_user.admin
+        gon.watch.admin = 'true'
+      else
+        gon.watch.admin = 'false'
+      end
+    else
+      gon.watch.logged_in = 'false'
+    end
     @cart = Cart.find(params[:id])
     respond_to do |f|
       f.html { render :show }

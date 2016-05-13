@@ -1,4 +1,4 @@
-  <%= form_for @cart, remote: true, authenticity_token: true, html: { multipart: true, data: {id: @cart.id}}, role: "form" do |f| %>
+  <%= form_for @cart, remote: true, authenticity_token: true, html: { multipart: true, class: 'js-newCart', data: {id: @cart.id}}, role: "form" do |f| %>
   
     <div class ="form-group container js-updateCart">
 
