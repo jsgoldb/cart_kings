@@ -39,7 +39,6 @@ class CartsController < ApplicationController
   end
 
   def create
-    binding.pry
     @cart = Cart.create(cart_params)
     @cart.user_id = User.find(params[:cart][:user_id])
     @cart.save
@@ -68,11 +67,8 @@ class CartsController < ApplicationController
   end
 
   def update
-    binding.pry
     @cart = Cart.find(params[:id])
-    binding.pry
     @cart.update(cart_params)
-    binding.pry
     return head(:forbidden) if !can_modify_cart?(@cart)
     flash.now[:notice] = "Cart successfully updated."
     render json: @cart
