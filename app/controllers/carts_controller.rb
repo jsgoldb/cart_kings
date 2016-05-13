@@ -128,7 +128,6 @@ class CartsController < ApplicationController
     render :'application/index'
   end
 
-  #cart.image = File.open("#{Rails.root}/public/system/carts/images/cart29.jpg")
   private
 
     def cart_params
