@@ -243,9 +243,9 @@ Devise.setup do |config|
   #bypass certificate in development to avoid Faraday error
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'],
-  callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  callback_url: "https://cart-kings.herokuapp.com/users/auth/facebook/callback"
   config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'],
-  callback_url: "http://localhost:3000/users/auth/google_oauth2/callback"
+  callback_url: "https://cart-kings.herokuapp.com/users/auth/google_oauth2/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

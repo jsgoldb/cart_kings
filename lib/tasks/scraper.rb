@@ -47,14 +47,12 @@ class Scraper
       part_desc = part_div.css("center").text
       part = Part.find_or_create_by(description: part_desc)
       if part.description == "MIRAGE 14x7 Black w/ 205/30/14 Viper Street Tire"
-        binding.pry
       end
       image_url = part_div.css("a img").attribute("src").value
       part.image = URI.encode(BASE + image_url)
       part.category = category
       part.price = part_div.css("span")[1].text.split(" ").last.to_d
       if !part.save
-        binding.pry
       end
     end
   end
