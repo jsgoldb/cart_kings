@@ -33,7 +33,6 @@ class Scraper
         subcat = Category.find_or_create_by(name: category_div.css("a").attribute("title").value)
         subcat.image = URI.join(BASE, category_div.css("a img").attribute("src").value)
         if !subcat.save
-          binding.pry
         end
         category.child_categories << subcat
         category.save
