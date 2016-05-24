@@ -1,5 +1,5 @@
 
-$('.application.index').ready(function() {
+$(function() {
   listingPosition = 1;
   attachListeners();
 });

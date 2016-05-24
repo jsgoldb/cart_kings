@@ -1,23 +1,25 @@
 var newCartId;
 
-$('.carts.new').ready(function () {
+$(function () {
   addNewCartListeners();
 });
 
 function addNewCartListeners(){
-  $('form.js-newCart').on('submit', function(event){
+  $('.js-newCart form').on('submit', function(event){
+    var formData = new FormData($('form')[0]);
     event.preventDefault();
-    $.rails.handleRemote( $(this) ).always(function(response){
+    $.ajax({
+      url: '/carts',
+      type: 'POST',
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false 
+    }).success( function(response){
       location.hash = 1;
-      newCartId = response.cart.id;
-    }).always(function(){
-      var delay = 50;
-      setTimeout(function() {
-        //get second cart produced w image (remotipart bug)
-        $.getJSON('/carts/' + (parseInt(newCartId, 10) + 1), function(data){
-          showThisCart(data.cart);
-        });
-      }, delay);
+      showThisCart(response.cart);
     });
   });
-}
+};
+
+

@@ -1,6 +1,5 @@
-
   <div class="text-center centerBlock">
-    <%= form_for [@category, @part], html: { multipart: true}, role: "form" do |f| %>
+    <%= form_for [@category, @part], remote: true, html: { multipart: true}, role: "form" do |f| %>
 
 
         <%= f.label :description %>

@@ -26,7 +26,9 @@ class PartsController < ApplicationController
     if !@part.errors.empty?
       raise @part.errors.inspect
     end
-    redirect_to category_part_path(@part.category, @part)
+    respond_to do |f|
+      f.js {}
+    end
   end
 
   def edit
@@ -44,7 +46,9 @@ class PartsController < ApplicationController
     @part = Part.find(params[:id])
     @part.update(part_params)
     flash[:notice] = "Part successfully updated."
-    redirect_to category_part_path(@part.category, @part)
+    respond_to do |f|
+      f.js {render 'parts/create'}
+    end
   end
 
   def show

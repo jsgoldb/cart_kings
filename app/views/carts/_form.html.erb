@@ -1,4 +1,4 @@
-  <%= form_for @cart, remote: true, authenticity_token: true, html: { multipart: true, class: 'js-newCart', data: {id: @cart.id}}, role: "form" do |f| %>
+  <%= form_for @cart, authenticity_token: true, html: { multipart: true, class: 'js-updateCart', data: {id: @cart.id}}, role: "form" do |f| %>
   
     <div class ="form-group container js-updateCart">
 
@@ -15,7 +15,7 @@
       <%= f.number_field :price, :class => 'form-control' %>
       <br>
       <div class = 'text-center'>
-        <%= f.submit nil, :class => 'btn btn-success', data: {id: @cart.id}  %>
+        <%= f.submit nil, :class => 'btn btn-success js-updateCart', data: {id: @cart.id}  %>
       </div>
     </div>
 

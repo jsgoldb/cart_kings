@@ -1,0 +1,8 @@
+<div class = 'text-center'>
+  <h2><%= @part.description %></h2>
+
+  <img src=<%= @part.image.url %>>
+  <div>
+    <h3>MSRP: <%= number_to_currency(@part.price) %></h3>
+  </div>
+</div>

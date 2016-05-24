@@ -1,10 +1,10 @@
-$('.carts.index').ready(function () {
+$(function () {
   listenerFunction();
 });
 
 
 function listenerFunction(){
-  $('input').on('click', function(event){
+  $('.js-showCart').on('click', function(event){
   event.preventDefault();
   loadCart(event.currentTarget.dataset.id); //access data attribute from DOM
   });
@@ -65,9 +65,11 @@ function CartToShow (id, comments, price, image, parts){
 function showThisCart(cart) {
   var newCart = new CartToShow(cart.id, cart.comments, cart.price, cart.image_medium, cart.parts);
   $('#js-cart').html(newCart.renderTheCart(newCart));
-  //scroll to dynamically rendered element 
-  $('html, body').animate({
-    scrollTop: $('#js-cart').offset().top
-  }, 'slow');
+  //scroll to dynamically rendered element
+  if( $('#js-cart').length ) { 
+    $('html, body').animate({
+      scrollTop: $('#js-cart').offset().top
+    }, 'slow');
+  }
   location.hash = 1;
 }

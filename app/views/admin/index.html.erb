@@ -1,8 +1,9 @@
 <div class="text-center centerBlock">
   <h2>Create a New Part</h2>
 
-
-  <%= render partial: 'part_form', locals: {:@part => @part, :@categories => @categories} %>
+  <div id="js-part">
+    <%= render partial: 'part_form', locals: {:@part => @part, :@categories => @categories} %>
+  </div>
 
   <h2><%= link_to 'Add New Cart', new_cart_path %></h2>
 
