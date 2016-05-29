@@ -93,13 +93,13 @@ Rails.application.configure do
   #path for ImageMagick (image processor for Paperclip)
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
-  config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: ENV['AWS_S3_BUCKET'],
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-  }
-}
+#   config.paperclip_defaults = {
+#   storage: :s3,
+#   s3_credentials: {
+#     bucket: ENV['AWS_S3_BUCKET'],
+#     access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+#     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+#   }
+# }
   
 end
