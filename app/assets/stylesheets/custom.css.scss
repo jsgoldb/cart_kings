@@ -141,10 +141,16 @@ button.navbar-toggle{
     margin: 0 auto;
 }
 
-@media(max-width:500px){
+@media(max-width:650px){
     .item.pickgradient {
-        max-height: 320px !important;
+        max-height: 294px !important;
     }
+}
+
+@media(max-width:650px){
+  #myCarousel {
+    max-height: 294px !important;
+  }
 }
 
 .carousel-control span {
@@ -183,6 +189,10 @@ a:hover {
 
 a:hover.nav-custom{
     color: white !important;
+}
+
+a:hover.carousel-control {
+    background-color: transparent !important;
 }
 
 

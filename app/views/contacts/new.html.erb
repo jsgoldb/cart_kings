@@ -1,15 +1,23 @@
-<div class="centerBlock text-center">
-  <h3>Contact Us for Info, Questions, or Just to Say Hi!</h3>
+<div class="centerBlock text-center col-xs-6 col-xs-offset-3">
+  <h3>Contact Us for More Info</h3>
 
-  <%= simple_form_for @contact, :html => {:class => 'form-horizontal'} do |f| %>
+  <%= simple_form_for @contact, :html => {:class => 'col-xs-6 col-sm-offset-2 col-med-offset-3 col-lg-offset-4 text-center'} do |f| %>
+    <div class="form-group">
       <%= f.input :name, :required => true %>
+    </div>
+    <div class="form-group">
       <%= f.input :email, type: 'email', :required => true %>
-      <%= f.input :number, type: 'tel', required: false, label: 'Phone Number (optional) XXX-XXX-XXXX'  %>
+    </div>
+    <div class="form-group">
+      <%= f.input :number, type: 'tel', required: false, label: 'Number (optional)', default: 'XXX-XXX-XXXX' %>
+    </div>
+    <div class="form-group">
       <%= f.input :message, :as => :text, :required => true %>
+    </div>
     <div class= "hidden">
       <%= f.input :nickname, :hint => 'Leave this field blank!' %>
     </div>
-    <div>
+    <div class="form-group">
       </br>
       <%= f.button :submit, 'Send Message', :class=> "btn btn-primary" %>
     </div>
