@@ -47,7 +47,6 @@ class CartsController < ApplicationController
     if @cart.image_file_name = nil
       @cart.destroy
     end
-    render json: cartClone
   end
 
   def edit
@@ -71,7 +70,6 @@ class CartsController < ApplicationController
     @cart.update(cart_params)
     return head(:forbidden) if !can_modify_cart?(@cart)
     flash.now[:notice] = "Cart successfully updated."
-    render json: @cart
   end
 
   def show
