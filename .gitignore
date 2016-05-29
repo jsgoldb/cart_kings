@@ -16,5 +16,4 @@
 !/log/.keep
 /tmp
 
-#ignore environment variables
-*.env
+
