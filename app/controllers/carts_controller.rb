@@ -42,7 +42,7 @@ class CartsController < ApplicationController
     @cart = Cart.create(cart_params)
     @cart.user_id = User.find(params[:cart][:user_id])
     @cart.save
-    flash.now[:notice] = "Cart successfully created."
+    flash[:notice] = "Cart successfully created."
     cartClone = @cart #handles remotipart calling action twice
     if @cart.image_file_name = nil
       @cart.destroy
@@ -70,7 +70,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.update(cart_params)
     return head(:forbidden) if !can_modify_cart?(@cart)
-    flash.now[:notice] = "Cart successfully updated."
+    flash[:notice] = "Cart successfully updated."
     redirect_to carts_path
   end
 
