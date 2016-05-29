@@ -1,8 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.default_url_options = { host: 'coy.coysac.co', port: 465 }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'coy.coysac.co',
+    port: 465,
+    domain: 'coy.coysac.co',
+    user_name: 'contact@cartkings.net',
+    password: 'C0ntact124',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   # Code is not reloaded between requests.
