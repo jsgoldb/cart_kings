@@ -93,6 +93,9 @@ Rails.application.configure do
   #path for ImageMagick (image processor for Paperclip)
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
+  #serve images over https
+  Paperclip.options[:s3_protocol] = :https
+
   config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
