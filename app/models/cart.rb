@@ -3,7 +3,7 @@ class Cart < ActiveRecord::Base
   has_many :cart_parts
   has_many :parts, through: :cart_parts
   has_attached_file :image, styles: { medium: "373x500#", thumb: "100x100>" }, default_url: "images/:style/missing.png",
-  :source_file_options => { :all => '-auto-orient' }
+  :source_file_options => { :all => '-auto-orient' }, :s3_protocol => :https
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   #validates_attachment_presence :image
 
