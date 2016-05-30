@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "seth@jsgold.co"
+  default from: "New Quote Request"
   layout 'mailer'
 
 
