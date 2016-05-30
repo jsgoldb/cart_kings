@@ -1,6 +1,6 @@
 $(function() {
   listingPosition = 1;
-  attachListeners();
+  //attachListeners();
 });
 
 // function attachListeners(){
