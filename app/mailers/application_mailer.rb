@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "New Quote Request"
+  default from: "contact@cartkings.net"
   layout 'mailer'
 
 
