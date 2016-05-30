@@ -31,7 +31,7 @@ function loadCartsIndex(){
 };
 
 function loadThreeCarts(startingIndex, dataJSON){
-  return dataJSON.splice(startingIndex, 3);
+  return dataJSON.carts.splice(startingIndex, 3);
 }
 
 function Cart (id, comments, price, image){
