@@ -43,7 +43,7 @@ class CartPartsController < ApplicationController
       @cart_part = @cart.cart_parts.create(part_id: @part.id, cart_id: @cart.id)
     end
     @cart_part.save
-    flash[:notice] = "Part added to Cart"
+    flash[:alert] = "Part added to Cart"
     redirect_to cart_path(@cart)
   end
 
