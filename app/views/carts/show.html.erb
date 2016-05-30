@@ -7,11 +7,15 @@
       <img src=<%= @cart.image.url(:medium) %> alt="">
 
       <h4><%= @cart.comments %></h4>
-      <h3>Cart Price: <%= number_to_currency(@cart.price) %></h3>
+      <% if @cart.price %>
+        <h3> Cart Price: <%= number_to_currency(@cart.price) %></h3>
+      <% end %>
 
-  <div>
-    <h2>Parts On This Cart</h2>
-  </div>
+  <% if @cart.parts %>
+    <div>
+      <h2>Parts On This Cart</h2>
+    </div>
+  <% end %>
 
   <% if current_user && current_user.admin %>
     <div>
