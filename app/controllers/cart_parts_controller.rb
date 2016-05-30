@@ -31,7 +31,10 @@ class CartPartsController < ApplicationController
   end
 
   def create
-    @part = Part.find_by(description: params[:cart_part][:part])
+    if !@part = Part.find_by(description: params[:cart_part][:part])
+      flash[:notice] = "Part could not be found."
+      redirect_to cart_path(Cart.find(params[:cart_id]))
+    end
     @cart = Cart.find(params[:cart_id])
     return head(:forbidden) if !can_modify_cart?(@cart)
     @cart_part = CartPart.find_by(part_id: @part.id, cart_id: @cart.id)
