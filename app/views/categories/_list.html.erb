@@ -1,7 +1,12 @@
 <% @categories.each do |cat| %>
 
   <a href="<%= category_path(cat) %>">
-    <div class="col-xs-6 col-sm-3 thumbnail">
+    <div class="col-xs-6 col-sm-3 thumbnail text-center">
+
+      <% if current_user && current_user.admin %>
+        <%= link_to("Delete Category", "/categories/#{cat.id}", data: {confirm: 'Are you sure you want to delete this category?'}, method: :delete) %>
+      <% end %>
+      
       <img src="<%= cat.image.url %>" alt="<%= cat.name %>"/>
       <div class="category_name_wide">
         <%= cat.name %>
