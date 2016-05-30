@@ -16,6 +16,7 @@ function attachListeners(){
 function loadCartsIndex(){
    var load = $.getJSON("/carts.json", function(data) {
     var threeCarts = loadThreeCarts(listingPosition, data);
+    debugger;
     threeCarts.forEach(function(cart){
       var currentCart = new Cart(cart.id, cart.comments, cart.price, cart.image_medium);
       showCart(currentCart);
