@@ -92,6 +92,6 @@ function Cart (id, comments, price, image){
 }
 
 function showCart(currentCart){
-  $('#cart-index').append(currentCart.smallCart(currentCart));
+  $(document.body).append(currentCart.smallCart(currentCart));
 }
        
