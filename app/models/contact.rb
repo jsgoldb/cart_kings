@@ -3,7 +3,7 @@ class Contact < MailForm::Base
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :message,   :validate => true
   attribute :nickname,  :captcha  => true
-  attribute :number, :validate => /\d{3}[\-]\d{3}[\-]\d{4}/, allow_blank: true
+  attribute :number, :validate => /\d{3}[\-]\d{3}[\-]\d{4}/
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.

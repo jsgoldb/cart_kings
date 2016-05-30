@@ -3,14 +3,14 @@ $(function() {
   attachListeners();
 });
 
-function attachListeners(){
-  //delegated click event allows attachment to dynamically generated content
-  $(document.body).on("click", 'a.c-warehouse', function(event){
-    event.preventDefault();
-    event.stopPropagation();
-    loadCartsIndex();
-  });
-};
+// function attachListeners(){
+//   //delegated click event allows attachment to dynamically generated content
+//   $(document.body).on("click", 'a.c-warehouse', function(event){
+//     event.preventDefault();
+//     event.stopPropagation();
+//     loadCartsIndex();
+//   });
+// };
 
 function loadCartsIndex(){
    var load = $.getJSON("/carts.json", function(data) {
@@ -31,7 +31,7 @@ function loadCartsIndex(){
 };
 
 function loadThreeCarts(startingIndex, dataJSON){
-  return dataJSON.carts.splice(startingIndex, 3);
+  return dataJSON.splice(startingIndex, 3);
 }
 
 function Cart (id, comments, price, image){
@@ -92,6 +92,6 @@ function Cart (id, comments, price, image){
 }
 
 function showCart(currentCart){
-  $('#cart-index').append('Hello There!');
+  $('#cart-index').append(currentCart.smallCart(currentCart));
 }
        
