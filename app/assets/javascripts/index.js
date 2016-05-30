@@ -26,13 +26,13 @@ function loadCartsIndex(){
   });
   listingPosition += 3;
   $('html, body').animate({
-    scrollTop: $('#scroll-stop').offset().top
+    scrollTop: $('#cart-index').offset().top
   }, 'slow');
   location.hash = 1; //preserves back button function
 };
 
 function loadThreeCarts(startingIndex, dataJSON){
-  return dataJSON.carts.splice(startingIndex, 3);
+  return dataJSON.splice(startingIndex, 3);
 }
 
 function Cart (id, comments, price, image){
