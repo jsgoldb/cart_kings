@@ -33,7 +33,7 @@ class CartPartsController < ApplicationController
   def create
     @part = Part.find_by(description: params[:cart_part][:part])
     if @part == nil
-      flash[:notice] = "Part could not be found."
+      flash[:alert] = "Part could not be found."
       return redirect_to cart_path(Cart.find(params[:cart_id]))
     end
     @cart = Cart.find(params[:cart_id])
@@ -43,7 +43,7 @@ class CartPartsController < ApplicationController
       @cart_part = @cart.cart_parts.create(part_id: @part.id, cart_id: @cart.id)
     end
     @cart_part.save
-    flash[:alert] = "Part added to Cart"
+    flash[:notice] = "Part added to Cart"
     redirect_to cart_path(@cart)
   end
 
